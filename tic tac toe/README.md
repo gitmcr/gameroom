@@ -2,10 +2,10 @@
 
 ------------------------
 
-🇫🇷 Jeu de réflexion se pratiquant à deux joueurs, au tour par tour!
+🇫🇷 / Jeu de réflexion se pratiquant à deux joueurs, au tour par tour!
 
 
-🇺🇸 Two-player, turn-based puzzle game! 
+🇺🇸 / Two-player, turn-based puzzle game! 
 
 ------------------------
 
