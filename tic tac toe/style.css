@@ -1,0 +1,35 @@
+body {
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;        /* Centre le jeu au milieu de la page */
+    height: 100vh;
+    margin: 0;                      
+}
+
+.container {
+    display: grid;                                      /* Met en forme de grille le conteneur des cellules */
+    grid-template-columns: repeat(1, 300px);            /* 1 colonne de 300px */
+    grid-template-rows: repeat(3, 100px);               /* 3 lignes de 100px chacunes */
+}
+
+.cell {
+    width: 100px;                                       /* Largeur de 100px */      
+    height: 100px;                                      /* Hauteur de 100px */
+    border: 2px solid white;                          /* Bordure de 2px, solide en blanc */
+    color: white;                                     /* Texte en blanc */
+    font-size: 3em;                                     /* Texte de taille 3em */
+    display: flex;
+    align-items: center;                                
+    justify-content: center;                            /* Centre le texte dans la cellule */
+    cursor: pointer;                                    /* Type de curseur en pointeur */
+}
+
+.row {
+    display: flex;                                      /* Met les "row" en ligne */
+}
+
+#title {
+    text-align: center;                                 /* Centre le titre */
+    color: white;                                     /* Texte en blanc */
+}
