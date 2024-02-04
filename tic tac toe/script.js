@@ -1,57 +1,112 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cells = document.querySelectorAll('.cell');       // Défini la variable "cell" comme étant les cellules (const car ne change pas)
-    let currentPlayer = 'X';                                // Défini la variable "currentPlayer" étant "X"
-    let gameBoard = ['', '', '', '', '', '', '', '', ''];   // Défini la variable "gameBoard" étant une array avec 9 champs libres
+    // Sélectionne toutes les cellules du jeu dans la variable "cells"
+    const cells = document.querySelectorAll('.cell');
+    // Initialise le joueur actuel à 'X' dans la variable "currentPlayer"
+    let currentPlayer = 'X';
+    // Initialise le tableau de jeu avec des cellules vides dans la variable "gameBoard"
+    let gameBoard = ['', '', '', '', '', '', '', '', ''];
 
-    cells.forEach(cell => {                                 // A chaque click sur une cellule, lance la fonction "cellClick"
+    // A chaque click sur une cellule
+    cells.forEach(cell => {
         cell.addEventListener('click', cellClick);
     });
 
-    function cellClick() {  
-        const index = this.dataset.index;                   // Récupère la valeur de "data-index" dans le HTML  (const car ne change pas)
+    // Appelle la fonction "cellClick"
+    function cellClick() {
+        // Récupère l'index de la cellule cliquée depuis l'attribut data-index dans le html
+        const index = this.dataset.index;
 
-        if (gameBoard[index] === '' && !checkWinner()) {    // Si l'index === à aucune valeur ET qu'il n'y a pas de gagnant (fonction checkWinner)
-            gameBoard[index] = currentPlayer;               // Alors, index = currentPlayer
-            this.textContent = currentPlayer;               // Changement du texte en "currentPlayer" sur la cellule en question
+        // Vérifie si la cellule est vide et s'il n'y a pas de gagnant
+        if (gameBoard[index] === '' && !checkWinner()) {
+            // Rempli la cellule avec le symbole du joueur actuel (X ou O)
+            gameBoard[index] = currentPlayer;
+            this.textContent = currentPlayer;
 
-            if (checkWinner()) {                                            // Si il y a un gagnant
-                alert(`Le joueur avec les "${currentPlayer}" gagne!`);      // Alerte avec le joueur qui gagne (X ou O)
-                askForNewGame();                                            // Appelle la fonction "askForNewGame"
-            } else if (gameBoard.every(cell => cell !== '')) {              // Sinon, si pas de gagnant, on vérifie que toutes les cases sont bien remplies
-                alert('C\'est une égalité!');                               // Si c'est le cas, c'est une égalité
-                askForNewGame();                                            // Appelle la fonction "askForNewGame"
-            } else {                                                        // Sinon, si pas de gagnant ni d'égalité
-                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';          // Inverse le joueur actuel (ex: X en O ou inversement)
+            // Vérifie s'il y a un gagnant
+            if (checkWinner()) {
+                // Colorie les cellules gagnantes et attend 100ms avant d'afficher l'alerte pour éviter un overlap
+                highlightWinningCells();
+                setTimeout(() => {
+                    alert(`Le joueur avec les "${currentPlayer}" gagne!`);
+                    askForNewGame();
+                }, 100);  
+            } else if (gameBoard.every(cell => cell !== '')) {
+                // Attend 100ms avant d'afficher l'alerte pour permettre la colorisation des cellules gagnantes
+                setTimeout(() => {
+                    alert('C\'est une égalité!');
+                    askForNewGame();
+                }, 100);  
+            } else {
+                // Change le joueur actuel de X à O ou vice versa
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
             }
         }
     }
 
+    // Vérifier s'il y a un gagnant
     function checkWinner() {                            
-        const winPatterns = [                       // Défini la variable winPatterns comme un array contenant les différents patterns gagnants
+        // Patterns de victoire possibles sur le tableau
+        const winPatterns = [
             [0, 1, 2], [3, 4, 5], [6, 7, 8],
             [0, 3, 6], [1, 4, 7], [2, 5, 8],
             [0, 4, 8], [2, 4, 6]
         ];
 
-        return winPatterns.some(pattern => {        // Vérifie si au moins un élément de l'array winPatterns satisfait une condition spécifiée
-            const [a, b, c] = pattern;              // Déstructure en 3 variables a, b et c l'array
-            return gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c];   // Si les cellules correspondantes aux indices a, b et c 
-        });                                                                                                 // de l'array, sont occupées par le même joueur (X ou O)
-    }                                                                                                       // cela signifie qu'il y a un gagnant selon le pattern
-                                                                                                        
-    function askForNewGame() {
-        const playAgain = confirm('Voulez-vous jouer une nouvelle partie?');    // Demande avec une alerte si les utilisateurs veulent rejouer une partie
+        // Vérifie si au moins un pattern de victoire est présent
+        return winPatterns.some(pattern => {
+            // Déstructure le pattern en trois variables a, b, et c
+            const [a, b, c] = pattern;
+            // Vérifie si les cellules correspondantes aux indices a, b et c sont toutes occupées par le même joueur (X ou O)
+            return gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c];
+        });
+    }
 
-        if (playAgain) {                                                // Si les utilisateurs veulent rejouer
-            resetGame();                                                // Appelle la fonction "resetGame"
+    // Colorier les cellules gagnantes
+    function highlightWinningCells() {
+        // Patterns de victoire possibles sur le tableau
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        // Parcouriir chaque pattern de victoire
+        winPatterns.forEach(pattern => {
+            // Déstructure le pattern en trois variables a, b, et c
+            const [a, b, c] = pattern;
+            // Vérifie si les cellules correspondantes aux indices a, b et c sont toutes occupées par le même joueur (X ou O)
+            if (gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c]) {
+                // Ajoute la classe 'winning-cell' aux cellules gagnantes (background green)
+                cells[a].classList.add('winning-cell');
+                cells[b].classList.add('winning-cell');
+                cells[c].classList.add('winning-cell');
+            }
+        });
+    }
+
+    // Demander si les users veulent jouer une nouvelle partie
+    function askForNewGame() {
+        // Affiche une boîte de dialogue avec les boutons OUI et NON, stocke le résultat clicked dans la variable playAgain
+        const playAgain = confirm('Voulez-vous jouer une nouvelle partie?');
+
+        // Si les users ont clické OUI
+        if (playAgain) {
+            // Réinitialise le tableau
+            resetGame();
         }
     }
 
+    // Réinitialiser le jeu
     function resetGame() {
-        gameBoard = ['', '', '', '', '', '', '', '', ''];               // Réinitialise la grille du jeu
+        // Réinitialise le tableau de jeu avec des cases vides
+        gameBoard = ['', '', '', '', '', '', '', '', ''];
+        // Réinitialise le texte de chaque cellule
         cells.forEach(cell => {
-            cell.textContent = '';                                      // Efface le contenu de chaque cellule
+            cell.textContent = '';
+            // Retire la classe 'winning-cell' des cellules
+            cell.classList.remove('winning-cell');
         });
-        currentPlayer = 'X';                                            // Réinitialise "currentPlayer" à "X"
+        // Réinitialise le joueur actuel à "X"
+        currentPlayer = 'X';
     }
 });
