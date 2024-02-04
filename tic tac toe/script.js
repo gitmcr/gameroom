@@ -16,8 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (checkWinner()) {                                            // Si il y a un gagnant
                 alert(`Le joueur avec les "${currentPlayer}" gagne!`);      // Alerte avec le joueur qui gagne (X ou O)
+                askForNewGame();                                            // Appelle la fonction "askForNewGame"
             } else if (gameBoard.every(cell => cell !== '')) {              // Sinon, si pas de gagnant, on vérifie que toutes les cases sont bien remplies
                 alert('C\'est une égalité!');                               // Si c'est le cas, c'est une égalité
+                askForNewGame();                                            // Appelle la fonction "askForNewGame"
             } else {                                                        // Sinon, si pas de gagnant ni d'égalité
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';          // Inverse le joueur actuel (ex: X en O ou inversement)
             }
@@ -36,8 +38,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c];   // Si les cellules correspondantes aux indices a, b et c 
         });                                                                                                 // de l'array, sont occupées par le même joueur (X ou O)
     }                                                                                                       // cela signifie qu'il y a un gagnant selon le pattern
-});
+                                                                                                        
+    function askForNewGame() {
+        const playAgain = confirm('Voulez-vous jouer une nouvelle partie?');    // Demande avec une alerte si les utilisateurs veulent rejouer une partie
 
-/*  "gameBoard[a] !== ''" vérifie que la cellule à l'indice "a" n'est pas vide
-gameBoard[a] === gameBoard[b] && gameBoard[b] === gameBoard[c] vérifie que les cellules associées aux indices a, b et c sont toutes occupées par le même joueur,
-ce qui confirme qu'il a complété une ligne, colonne ou diagonale selon le pattern */
+        if (playAgain) {                                                // Si les utilisateurs veulent rejouer
+            resetGame();                                                // Appelle la fonction "resetGame"
+        }
+    }
+
+    function resetGame() {
+        gameBoard = ['', '', '', '', '', '', '', '', ''];               // Réinitialise la grille du jeu
+        cells.forEach(cell => {
+            cell.textContent = '';                                      // Efface le contenu de chaque cellule
+        });
+        currentPlayer = 'X';                                            // Réinitialise "currentPlayer" à "X"
+    }
+});
