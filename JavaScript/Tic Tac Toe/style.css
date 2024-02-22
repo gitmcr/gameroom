@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    background-color: grey;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;        /* Centre le jeu au milieu de la page */
+    height: 100vh;
+    margin: 0;                      
+}
+
+.container {
+    display: grid;                                      /* Met en forme de grille le conteneur des cellules */
+    grid-template-columns: repeat(1, 300px);            /* 1 colonne de 300px */
+    grid-template-rows: repeat(3, 100px);               /* 3 lignes de 100px chacunes */
+}
+
+.cell {
+    width: 100px;                                       /* Largeur de 100px */      
+    height: 100px;                                      /* Hauteur de 100px */
+    border: 2px solid black;                          /* Bordure de 2px, solide en noir */
+    color: black;                                     /* Texte en noir */
+    background-color: white;                          /* Fond de cellule en blanc */
+    font-size: 3em;                                     /* Texte de taille 3em */
+    display: flex;
+    align-items: center;                                
+    justify-content: center;                            /* Centre le texte dans la cellule */
+    cursor: pointer;                                    /* Type de curseur en pointeur */
+}
+
+.row {
+    display: flex;                                      /* Met les "row" en ligne */
+}
+
+#title {
+    text-align: center;                                 /* Centre le titre */
+    color: white;                                     /* Texte en blanc */
+    text-shadow: rgb(39, 39, 39) 2px 2px;             /* Ombrage du titre */
+}
+
+.cell:nth-child(3n+1) {                                 /* Cellules de la première colonne */
+    border-right: 0px;                                  /* Enlève les bordures pour éviter une bordures droites de 4px au lieu de 2px */
+}
+
+.cell:nth-child(3n+2) {                                 /* Cellules de la deuxième colonne */
+    border-right: 0px;                                  /* Enlève les bordures pour éviter une bordures droites de 4px au lieu de 2px */
+}
+
+.winning-cell {                                         
+    background-color: green;                         
+    color: white;
+    border-color: green;
+    border: 2px solid black;
+}

@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  border: 2px solid rgb(99, 99, 99);
+  padding: 10px 25px 25px 25px;
+  border-radius: 10px;
+  background-color: lightgray;
+  box-shadow: 10px 5px 5px darkgrey;
+}
+
+.logo {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.calculator {
+  text-align: center;
+}
+
+input {
+  width: 200px;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  text-align: end;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.button-grid button {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  cursor: pointer;
+  border: 2px solid gray;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+
+.button-grid button:hover {
+  background-color: #e0e0e0;
+}
+
+.button-reset button {
+  width: 225px;
+  margin-top: 5px;
+  background-color: lightcoral;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+
+.bottombutton {
+  display: flex;
+}
