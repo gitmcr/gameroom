@@ -1,0 +1,15 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.itemcheck {
+  display: flex;
+  gap: 10px;
+}
+
+.checkedclass {
+  text-decoration: line-through;
+}

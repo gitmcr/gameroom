@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  font-family: "Inter Tight";
+  background-color: #282828;
+  color: #dddddd;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.qrcode {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  padding-bottom: 10px;
+  font-size: 0.7em;
+}
+
+.footer a {
+  color: #6e70f1;
+  font-weight: 700;
+  text-decoration: none;
+  transition: font-size 0.5s;
+}
+
+.footer a:hover {
+  font-size: 1.2em;
+}
+
+button {
+  border-radius: 5px;
+  border: 2px solid transparent;
+  font-size: 0.7em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #6e70f1;
+}
+
+input {
+  border-radius: 2px;
+  border: 2px solid transparent;
+  font-size: 0.7em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  transition: border-color 0.25s;
+}
