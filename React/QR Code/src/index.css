@@ -21,9 +21,10 @@ img {
 }
 
 .qrcode {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .footer {
@@ -33,7 +34,7 @@ img {
   left: 50%;
   transform: translate(-50%, 0%);
   padding-bottom: 10px;
-  font-size: 0.7em;
+  font-size: 2em;
 }
 
 .footer a {
@@ -44,13 +45,14 @@ img {
 }
 
 .footer a:hover {
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 button {
   border-radius: 5px;
-  border: 2px solid transparent;
-  font-size: 0.7em;
+  border: 4px solid transparent;
+  padding: 5px 10px;
+  font-size: 2em;
   font-weight: 500;
   background-color: #1a1a1a;
   cursor: pointer;
@@ -63,8 +65,9 @@ button:hover {
 
 input {
   border-radius: 2px;
-  border: 2px solid transparent;
-  font-size: 0.7em;
+  border: 4px solid transparent;
+  height: 45px;
+  font-size: 2em;
   font-weight: 500;
   background-color: #1a1a1a;
   transition: border-color 0.25s;

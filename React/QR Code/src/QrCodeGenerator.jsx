@@ -20,7 +20,7 @@ export default function QrCodeGenerator() {
 
   return (
     <>
-      <img src={logo} alt="Logo mcr" height={50} />
+      <img src={logo} alt="Logo mcr" height={150} />
       <div className="input">
         <input
           type="text"
@@ -31,7 +31,7 @@ export default function QrCodeGenerator() {
         <button onClick={generateQrCode}>Générer un QR Code</button>
       </div>
       <div className="qrcode">
-        {qrCodeData && <QRCode value={qrCodeData} size={128} level="H" />}
+        {qrCodeData && <QRCode value={qrCodeData} size={300} level="H" />}
       </div>
       <div className="footer">
         <p>
