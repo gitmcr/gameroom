@@ -1,48 +1,48 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
   {
-    name: 'Focaccia',
+    name: "Focaccia",
     ingredients: "Pain à l'huile d'olive italienne et au romarin",
     price: 6,
-    photoName: 'pizzas/focaccia.jpg',
+    photoName: "pizzas/focaccia.jpg",
     soldOut: false,
   },
   {
-    name: 'Pizza Margherita',
-    ingredients: 'Tomate et mozzarella',
+    name: "Pizza Margherita",
+    ingredients: "Tomate et mozzarella",
     price: 10,
-    photoName: 'pizzas/margherita.jpg',
+    photoName: "pizzas/margherita.jpg",
     soldOut: false,
   },
   {
-    name: 'Pizza Spinaci',
-    ingredients: 'Tomate, mozarella, épinards, et ricotta',
+    name: "Pizza Spinaci",
+    ingredients: "Tomate, mozarella, épinards, et ricotta",
     price: 12,
-    photoName: 'pizzas/spinaci.jpg',
+    photoName: "pizzas/spinaci.jpg",
     soldOut: false,
   },
   {
-    name: 'Pizza Funghi',
-    ingredients: 'Tomate, mozarella, champignon, et oignon',
+    name: "Pizza Funghi",
+    ingredients: "Tomate, mozarella, champignon, et oignon",
     price: 12,
-    photoName: 'pizzas/funghi.jpg',
+    photoName: "pizzas/funghi.jpg",
     soldOut: false,
   },
   {
-    name: 'Pizza Salamino',
-    ingredients: 'Tomate, mozarella, et pepperoni',
+    name: "Pizza Salamino",
+    ingredients: "Tomate, mozarella, et pepperoni",
     price: 15,
-    photoName: 'pizzas/salamino.jpg',
+    photoName: "pizzas/salamino.jpg",
     soldOut: true,
   },
   {
-    name: 'Pizza Prosciutto',
-    ingredients: 'Tomate, mozarella, jambon, aragula, et burrata',
+    name: "Pizza Prosciutto",
+    ingredients: "Tomate, mozarella, jambon, aragula, et burrata",
     price: 18,
-    photoName: 'pizzas/prosciutto.jpg',
+    photoName: "pizzas/prosciutto.jpg",
     soldOut: false,
   },
 ];
@@ -107,13 +107,13 @@ function Pizza({ pizzaObj }) {
     // Template literal pour une affectation de classe sur "li"
     // Si une des pizzas est "soldOut", on lui attribut la classe "sold-out"
     // Sinon, une string vide (rien ajouter)
-    <li className={`pizza ${pizzaObj.soldOut ? 'sold-out' : ''}`}>
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
         <h3>{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
         <span>
-          {pizzaObj.soldOut ? 'RUPTURE DE STOCK' : pizzaObj.price + '€'}
+          {pizzaObj.soldOut ? "RUPTURE DE STOCK" : pizzaObj.price + "€"}
         </span>
       </div>
     </li>
@@ -155,7 +155,7 @@ function Order({ closeHour, openHour }) {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
