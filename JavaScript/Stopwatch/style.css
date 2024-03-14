@@ -1,0 +1,30 @@
+body {
+    background-color: cyan;
+}
+
+.container {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 250px;
+    border: solid black 1px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 70px
+}
+
+#startStopBtn {
+    background-color: lightgreen;
+    border: none;
+}
+
+#resetBtn {
+    background-color: lightcoral;
+    border: none;
+}

@@ -1,0 +1,42 @@
+.container {
+  display : flex;
+  margin-top :25%;
+  justify-content: center;
+}
+
+.btn {
+  border-color: black;
+  border-width: 3px;
+  border-radius : 10px;
+  padding : 2vh 4vh;
+  
+}
+
+body{
+  background-color: black;
+}
+
+.blue{
+  background-color: blue;
+}
+.green{
+  background-color: green;
+}
+.red{
+  background-color: red;
+}
+.yellow{
+  background-color: yellow;
+}
+.purple{
+  background-color: purple;
+}
+.cyan{
+  background-color: cyan;
+}
+.white{
+  background-color: white;
+}
+.whiteb{
+  border-color: white;
+}

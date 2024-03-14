@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: cyan;
+    text-align: center;
+}
+
+#container1, #div1{
+    flex-direction: column;
+    display : flex;
+    justify-content: center;
+}
+
+#div1{
+    background-color: rgb(32, 32, 32);
+    color: white;
+    border: solid;
+    border-color : white;
+    border-radius: 5px;
+    margin: 200px 730px 25px 730px;
+    padding: 8px;
+}
+
+#container1 {
+    background-color:#ffffff;
+    color: black;
+    border: solid;
+    border-color : white;
+    border-radius: 12px;
+    margin: 0px 650px 20px 650px;
+    padding: 60px 50px 15px 50px;
+    font-size: 24px;
+}
+
+.author {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    letter-spacing: 3px;
+    color: darkred;
+}
+
+.button {
+    background-color:rgb(32, 32, 32);
+    color: white;
+    border: solid;
+    border-color : white;
+    border-radius: 15px;
+    padding: 10px;
+    margin-left: 200px;
+    margin-right: 200px
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(54, 54, 54);
+}
+
+@keyframes animateModal {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.bite{
+    animation-name: animateModal;
+    animation-duration: 1000ms;
+}

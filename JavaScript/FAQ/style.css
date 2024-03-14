@@ -1,0 +1,64 @@
+body {
+    background-color: cyan;
+
+}
+
+.container {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 850px;
+    padding: 15px 30px 30px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2, p {
+    display: inline-flex;
+}
+
+#croixOne, #croixTwo, #croixThree {
+    float: right;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+hr {
+    background-color: black;
+}
+
+.hiddenOne {
+    display: none;
+}
+
+.hiddenTwo {
+    display: none;
+}
+
+.hiddenThree {
+    display: none;
+}
+
+p {
+    animation-name: slidein;
+    animation-duration: 1000ms;
+}
+
+@keyframes slidein {
+    from {
+      transform: translateY(-100%);
+      opacity: 0.2;
+    }
+  
+    to {
+        opacity: 1;
+      transform: translateY(0%);
+    }
+  }

@@ -1,0 +1,68 @@
+body {
+    background-color: #97c59b;
+}
+
+.open-btn {
+    padding: 1em 0.6em;
+    background-color: transparent;
+    font-size: 32px;
+    color: white;
+    border: solid white 2px;
+    border-radius: 10px;
+    margin-top: 65vh;
+    margin-left: 20vh;
+}
+
+.open-btn:hover {
+    transition-duration: 1000ms;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+
+
+
+.modal-container {
+    display : none;   /* par defaut, on le vois pas */
+}
+
+
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    padding: 0.2em 0.5em;
+    background-color: white;
+    font-size: 24px;
+    border-radius: 8px;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    animation-name: animateModal;
+    animation-duration: 1s;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+}
+
+/*
+.hideNo {
+    display: block; 
+}
+*/
+
+@keyframes animateModal {
+    from {
+        top: -300px;
+        opacity: 0;
+    } to {
+        top: 50%;
+        opacity: 1;
+    }
+}
